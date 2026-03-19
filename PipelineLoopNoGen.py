@@ -3,7 +3,7 @@ from FeedbackLoop import *
 import json
 import sys
 
-MAX_ITER = 5
+MAX_ITER = 3 # Set the maximum number of iterations for the loop
 
 PATHS = {
     "profile": "Files/Profiles/1EleanorVance.json", # LLM-generated profile with a fake user
@@ -15,12 +15,11 @@ def load_json(path, label):
     """
     Function for loading content from a json file.
     """
-    print(f"Loading {label}...\n")
+    print(f"Loading {label}...")
     try:
         with open(path, "r", encoding="utf-8") as f:
             data = json.load(f)
-        print(f"{label} loaded successfully:")
-        print(data)
+        print(f"{label} loaded successfully.\n")
         return data
     except FileNotFoundError:
         sys.exit(f"File not found: {path}")
@@ -34,11 +33,11 @@ def load_text(path, label):
     """
     Function for loading content from a text file.
     """
-    print(f"Loading {label}...\n")
+    print(f"Loading {label}...")
     try:
         with open(path, "r", encoding="utf-8") as f:
             data = f.read()
-        print(f"{label} loaded successfully.")
+        print(f"{label} loaded successfully.\n")
         return data
     except FileNotFoundError:
         sys.exit(f"File not found: {path}")

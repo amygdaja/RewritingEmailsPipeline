@@ -16,7 +16,7 @@ def rewrite_email(email, instructions, kb, profile_data, pipe):
                     Instructions for rewriting email: {instructions} \n
                     Rewrite the email according to the given instructions.
 
-                    Do not make any changes that were not suggested in the instructions. Track all the changes you make.
+                    Do NOT make any changes that were not suggested in the instructions. Track all the changes you make.
 
                     Respond strictly in valid JSON with the following format: """+
                     """{"Email": *Rewritten email*,  "Justification": *an explanation of what was changed*}"""

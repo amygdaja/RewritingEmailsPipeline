@@ -40,16 +40,14 @@ def get_sophistication_label_and_feedback(response):
 
 def FeedbackLoop(MAX_ITER, device, email, profile_data, kb_json):
     """
-    Feedback Loop that uses different prompts for each assessment category.
+    Feedback Loop that assesses the email on multiple dimensions, and rewrites it when needed.
     Returns final email.
     """
     pipe = phishing_pipeline(device) # Create pipeline
 
-    print("Feedback loop with multiple sophitication prompts")
-
     # Feedback loop with multiple prompts
     for iteration in range(1, MAX_ITER+1):
-        print(f"... Iteration {iteration} of loop ...")
+        print(f"\n... Iteration {iteration} of loop ...")
 
         phishing_pass_total = False
         sophistication_pass = False
@@ -79,17 +77,24 @@ def FeedbackLoop(MAX_ITER, device, email, profile_data, kb_json):
             else:
                 sections = []
 
+                # Add feedback to the list
                 if phishing_label == 1:
-                    add_section(sections, "Phishing Detection", phishing_label, phishing_feedback)
-
+                    add_section(sections, "Phishing Characteristics", phishing_label, phishing_feedback)
                 if persuasion_label == 1:
-                    add_section(sections, "Persuasion Detection", persuasion_label, persuasion_feedback)
+                    add_section(sections, "Phishing Persuasion", persuasion_label, persuasion_feedback)
 
                 combined_phishing_feedback = "\n\n".join(sections)
 
+        # Determine whether the email passes the phishing assessment (0=benign, 1=phishing)
         phishing_pass_total = (final_label == 0)
 
-        # ---- Sophistication ----
+        if phishing_pass_total:
+            print("\nEmail is considered benign by critic.")
+        else:
+            print("\nEmail is considered phishing by critic. It failed on:\n")
+            print(combined_phishing_feedback)
+
+        # ---- Email Sophistication ----
         etiquette_score, etiquette_feedback = get_sophistication_label_and_feedback(
             evaluate_etiquette(email, pipe)
         )
@@ -106,54 +111,46 @@ def FeedbackLoop(MAX_ITER, device, email, profile_data, kb_json):
             evaluate_personalization_persuasion(email, persuasion_principles, kb_json, profile_data, pipe)
         )
 
-        scores = [
-            etiquette_score,
-            content_score,
-            personalization_score,
-            personalization_persuasion_score
+        scores = [etiquette_score, content_score, personalization_score, personalization_persuasion_score
         ]
 
         if -1 in scores:
             print("\nIssue with parsing sophistication criterion. Loop ending early...")
             break
 
+        # Determine whether the email passes the sophistication assessment (0=not sophisticated, 1=sophisticated)
         sophistication_label = int(all(score == 1 for score in scores))
         sophistication_pass = (sophistication_label == 1)
-
-        if phishing_pass_total and sophistication_pass:
-            print("\nEmail is considered both benign and sophisticated by critic. Ending loop...")
-            return email
 
         if sophistication_pass:
             print("\nEmail is considered sophisticated by critic.")
             combined_sophistication_feedback = "None"
         else:
-            print("\nEmail is not considered sophisticated by critic.")
+            print("\nEmail is not considered sophisticated by critic. It failed on:\n")
 
             sections = []
 
+            # add feedback to the list
             if etiquette_score == 0:
-                add_section(sections, "Etiquette Assessment", etiquette_score, etiquette_feedback)
-
+                add_section(sections, "Email Etiquette", etiquette_score, etiquette_feedback)
             if content_score == 0:
-                add_section(sections, "Content Assessment", content_score, content_feedback)
-
+                add_section(sections, "Email Content", content_score, content_feedback)
             if personalization_score == 0:
-                add_section(sections, "Personalization Assessment", personalization_score, personalization_feedback)
-
+                add_section(sections, "General Personalization", personalization_score, personalization_feedback)
             if personalization_persuasion_score == 0:
-                add_section(
-                    sections,
-                    "Personalization of Persuasion Principles Assessment",
-                    personalization_persuasion_score,
-                    personalization_persuasion_feedback
-                )
+                add_section(sections, "Personalization of Persuasion Principles", personalization_persuasion_score, personalization_persuasion_feedback)
 
             combined_sophistication_feedback = "\n\n".join(sections)
+            print(combined_sophistication_feedback)
+
+        if phishing_pass_total and sophistication_pass:
+            print("\nEmail is considered both benign and sophisticated by critic. Ending loop...")
+            return email
 
         # Generate actionable instructions for rewriting the email
+        print("\nGenerating instructions...")
         instructions_raw = summarize_feedback(email, combined_phishing_feedback, combined_sophistication_feedback, kb_json, profile_data, pipe)
-        print(instructions_raw)
+        # print(instructions_raw)
         instructions_formatted = parse_instructions_to_text(instructions_raw)
         if (instructions_formatted == None):
             print("\nIssue with parsing instructions. Loop ending early...")
@@ -161,15 +158,15 @@ def FeedbackLoop(MAX_ITER, device, email, profile_data, kb_json):
         print(f"\nInstructions based on feedback: {instructions_formatted}")
 
         # Rewrite email based on feedback
-        print("\nRewriting email based on given feedback...")
+        print("\nRewriting email based on given feedback...\n")
         new_email = rewrite_email(email, instructions_formatted, kb_json, profile_data, pipe)
-        print(new_email) #for debugging
         email, justification = parse_rewritten_email(new_email)
         if (email == None):
             print("\nIssue with parsing rewritten email. Loop ending early...")
             break
 
         print(email)
+        print("\nJustification for the changes that were made:")
         print(justification)
 
     print("\nLoop ended.\n")

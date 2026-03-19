@@ -22,7 +22,6 @@ def phishing_pipeline(device="cuda"):
     torch.backends.cuda.enable_math_sdp(True)
 
     MODEL_ID = "google/gemma-3-4b-it"
-    #MODEL_ID = "meta-llama/Llama-3.2-3B-Instruct"
 
     tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
     if tokenizer.pad_token is None:
