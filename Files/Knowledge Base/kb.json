@@ -1,0 +1,106 @@
+{
+  "population_level_observations": {
+    "Managers": {
+      "observed_pattern": "Managers exhibit both very high and very low success rates depending on tactic combinations.",
+      "effective_combinations": [
+        "Button or attachment redirection combined with Data Confirmation or Security Update pretexts",
+        "Use of authority or scarcity cues in professional contexts"
+      ],
+      "ineffective_combinations": [
+        "Shop pretext with weak persuasion cues",
+        "Link-only redirection without authority or scarcity"
+      ],
+      "variability_note": "Success rates for managers vary widely across countries, pretexts, and redirection methods, indicating strong interaction effects rather than a uniformly high susceptibility."
+    },
+    "Employees": {
+      "observed_pattern": "Employees show moderate success rates with noticeable sensitivity to redirection method.",
+      "effective_combinations": [
+        "Button-based redirection paired with Data Confirmation",
+        "Attachments when combined with contextual pretexts"
+      ],
+      "ineffective_combinations": [
+        "Link-based redirection without persuasive support",
+        "Security Update pretexts without authority cues"
+      ],
+      "variability_note": "Employee responses vary substantially by country and persuasion principle usage, suggesting situational rather than demographic dominance."
+    },
+    "Students": {
+      "observed_pattern": "Students generally show lower success rates, with a few high-performing outliers.",
+      "effective_combinations": [
+        "Link or attachment redirection combined with Shop pretexts",
+        "Use of authority or commitment cues in younger age ranges"
+      ],
+      "ineffective_combinations": [
+        "Security Update pretexts without strong persuasion signals",
+        "Generic messages lacking personalization or urgency"
+      ],
+      "variability_note": "Student success rates fluctuate strongly by country and age range, indicating heterogeneity within this population."
+    }
+  },
+
+  "pretext_effectiveness": {
+    "Data Confirmation": {
+      "observed_effect": "Appears across many high and moderate success-rate entries for managers and employees.",
+      "notes": "This pretext performs well when paired with button or attachment redirection and reinforced by authority or commitment cues."
+    },
+    "Security Update": {
+      "observed_effect": "Produces mixed outcomes, including both high and very low success rates.",
+      "notes": "Effectiveness appears contingent on authority and scarcity usage; weak persuasion leads to poor outcomes."
+    },
+    "Shop": {
+      "observed_effect": "Frequently associated with lower success rates, but with notable exceptions.",
+      "notes": "Shop pretexts occasionally perform well when combined with strong authority or commitment cues, particularly in specific age groups."
+    }
+  },
+
+  "redirection_method_patterns": {
+    "Button": {
+      "observed_effect": "Often associated with higher success rates across populations.",
+      "notes": "Button-based interactions appear to reduce friction and are frequently paired with successful Data Confirmation or Shop pretexts."
+    },
+    "Attachments": {
+      "observed_effect": "Highly variable effectiveness.",
+      "notes": "Attachments can be very effective or very ineffective depending on pretext and persuasion cues, indicating high risk–reward behavior."
+    },
+    "Link": {
+      "observed_effect": "More commonly associated with moderate to low success rates.",
+      "notes": "Links perform better when supported by authority cues or when aligned with contextual expectations."
+    }
+  },
+
+  "persuasion_principle_observations": {
+    "Authority": {
+      "observed_effect": "Frequently present in higher success-rate entries for managers and employees.",
+      "notes": "Authority cues appear less consistently effective for students unless combined with relevance or commitment."
+    },
+    "Scarcity": {
+      "observed_effect": "Appears in both successful and unsuccessful emails.",
+      "notes": "Scarcity alone does not guarantee success and is more effective when paired with Security Update or Data Confirmation pretexts."
+    },
+    "Commitment": {
+      "observed_effect": "Associated with several higher success-rate outcomes across populations.",
+      "notes": "Commitment cues appear most effective when the email implies an existing relationship or prior interaction."
+    }
+  },
+
+  "country_level_observations": {
+    "USA": {
+      "observed_pattern": "Displays a wide range of success rates, including many high-performing combinations.",
+      "notes": "USA entries frequently include Data Confirmation pretexts and button-based redirection."
+    },
+    "Netherlands": {
+      "observed_pattern": "Shows moderate success rates with fewer extreme highs.",
+      "notes": "Security Update and Data Confirmation pretexts dominate, with mixed effectiveness."
+    },
+    "Italy": {
+      "observed_pattern": "Includes many lower success-rate entries, with some strong exceptions.",
+      "notes": "Shop and Security Update pretexts appear more frequently, with effectiveness depending strongly on persuasion cue usage."
+    }
+  },
+  "recommendations": [
+    "Evaluate phishing risk based on combinations of pretext, redirection method, and persuasion cues rather than population alone.",
+    "Treat attachment-based emails as high-variance signals requiring contextual evaluation.",
+    "Flag button-based Data Confirmation emails targeting managers and employees as higher risk.",
+    "Avoid assuming uniform susceptibility within any population; country and age range materially affect outcomes."
+  ]
+}

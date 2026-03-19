@@ -1,0 +1,233 @@
+{
+  "name": "Daniel Hayes",
+  "levelOfInternetUsage": {
+    "dataPoints": [
+      {
+        "info": "Frequently uses the internet, primarily for professional networking and industry news.  Regularly engages with LinkedIn posts and online articles.",
+        "year": 2021,
+        "ref": "https://www.linkedin.com/in/danielhayes/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Professional"
+      }
+    ],
+    "cohesion": "High"
+  },
+  "education": {
+    "dataPoints": [
+      {
+        "info": "Bachelor of Science in Computer Science from State University, 2018.",
+        "year": 2018,
+        "ref": "https://www.stateuniversity.edu/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Personal"
+      },
+      {
+        "info": "Completed a coding bootcamp focused on full-stack web development, 2020.",
+        "year": 2020,
+        "ref": "https://www.examplecodingbootcamp.com/",
+        "confidence": "Medium",
+        "sensitivity": false,
+        "dimension": "Personal"
+      }
+    ],
+    "cohesion": "Medium"
+  },
+  "culture": {
+    "dataPoints": [
+      {
+        "info": "American, primarily uses English in his online presence.",
+        "year": 2020,
+        "ref": "https://www.linkedin.com/in/danielhayes/",
+        "confidence": "Medium",
+        "sensitivity": false,
+        "dimension": "Personal"
+      }
+    ],
+    "cohesion": "High"
+  },
+  "age": {
+    "dataPoints": [
+      {
+        "info": "Approximately 32-35 years old, based on education and professional experience.",
+        "year": 2021,
+        "ref": "https://www.linkedin.com/in/danielhayes/",
+        "confidence": "Medium",
+        "sensitivity": false,
+        "dimension": "Personal"
+      }
+    ],
+    "cohesion": "High"
+  },
+  "gender": {
+    "dataPoints": [
+      {
+        "info": "Male, Mr.",
+        "year": 2016,
+        "ref": "https://www.example.com/user_profiles/daniel",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Personal"
+      }
+    ],
+    "cohesion": "High"
+  },
+  "workExperience": {
+    "dataPoints": [
+      {
+        "info": "Senior Software Engineer at Tech Solutions Inc., 2020 - Present.",
+        "year": 2021,
+        "ref": "https://www.techsolutionsinc.com/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Professional"
+      },
+      {
+        "info": "Junior Software Developer at Innovate Systems, 2018 - 2020.",
+        "year": 2021,
+        "ref": "https://www.innovatesystems.com/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Professional"
+      },
+      {
+        "info": "Software Development Intern at Beta Corp, 2017 - 2018.",
+        "year": 2021,
+        "ref": "https://www.betacorp.com/",
+        "confidence": "Medium",
+        "sensitivity": false,
+        "dimension": "Professional"
+      }
+    ],
+    "cohesion": "High"
+  },
+  "role": {
+    "dataPoints": [
+      {
+        "info": "Senior Software Engineer",
+        "year": 2021,
+        "ref": "https://www.linkedin.com/in/danielhayes/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Professional"
+      }
+    ],
+    "cohesion": "High"
+  },
+  "yearsInCurrentCompany": {
+    "dataPoints": [
+      {
+        "info": "Tech Solutions Inc. - Approximately 2 years.",
+        "year": 2021,
+        "ref": "https://www.linkedin.com/in/danielhayes/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Professional"
+      }
+    ],
+    "cohesion": "High"
+  },
+  "communitiesMembership": {
+    "dataPoints": [
+      {
+        "info": "Stack Overflow User",
+        "year": 2019,
+        "ref": "https://stackoverflow.com/users/12345678/daniel-hayes",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Professional"
+      }
+    ],
+    "cohesion": "High"
+  },
+  "likesAndInterest": {
+    "dataPoints": [
+      {
+        "info": "Hiking and Photography",
+        "year": 2020,
+        "ref": "https://www.example.com/hiking-photography",
+        "confidence": "Medium",
+        "sensitivity": false,
+        "dimension": "Personal"
+      }
+    ],
+    "cohesion": "Medium"
+  },
+  "residence": {
+    "dataPoints": [
+      {
+        "info": "San Francisco, California",
+        "year": 2021,
+        "ref": "https://www.linkedin.com/in/danielhayes/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Personal"
+      },
+      {
+        "info": "Chicago, Illinois (briefly)",
+        "year": 2015,
+        "ref": "https://www.linkedin.com/in/danielhayes/",
+        "confidence": "Low",
+        "sensitivity": false,
+        "dimension": "Personal"
+      }
+    ],
+    "cohesion": "Low"
+  },
+  "contactsNetwork": {
+    "dataPoints": [
+      {
+        "info": "Sarah Miller",
+        "year": 2020,
+        "ref": "https://www.linkedin.com/in/fakemailuser1/",
+        "confidence": "Medium",
+        "sensitivity": false,
+        "dimension": "Professional"
+      },
+      {
+        "info": "David Chen",
+        "year": 2019,
+        "ref": "https://www.linkedin.com/in/fakemailuser2/",
+        "confidence": "Medium",
+        "sensitivity": false,
+        "dimension": "Professional"
+      },
+      {
+        "info": "Maria Rodriguez",
+        "year": 2021,
+        "ref": "https://www.linkedin.com/in/fakemailuser3/",
+        "confidence": "Medium",
+        "sensitivity": false,
+        "dimension": "Professional"
+      }
+    ],
+    "cohesion": "Medium"
+  },
+  "workPlace": {
+    "dataPoints": [
+      {
+        "info": "Tech Solutions Inc., San Francisco",
+        "year": 2021,
+        "ref": "https://www.linkedin.com/in/danielhayes/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Professional"
+      }
+    ],
+    "cohesion": "High"
+  },
+  "lifeEvents": {
+    "dataPoints": [
+      {
+        "info": "Volunteered at a local coding workshop in 2019.",
+        "year": 2019,
+        "ref": "https://www.example.com/coding-workshop",
+        "confidence": "Medium",
+        "sensitivity": false,
+        "dimension": "Professional"
+      }
+    ],
+    "cohesion": "High"
+  }
+}

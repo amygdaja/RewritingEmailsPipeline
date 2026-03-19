@@ -1,0 +1,154 @@
+{
+  "name": "Eleanor Vance",
+  "levelOfInternetUsage": {
+    "dataPoints": [
+      {
+        "info": "Regular user of LinkedIn and Twitter, actively engaging with professional content.  Likely spends several hours per week online.",
+        "year": 2021,
+        "ref": "https://www.linkedin.com/in/eleanorvance/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Professional"
+      }
+    ]
+  },
+  "education": {
+    "dataPoints": [
+      {
+        "info": "Bachelor of Fine Arts in Photography from the Rhode Island School of Design (RISD). Graduated in 2018.",
+        "year": 2018,
+        "ref": "https://www.risd.edu/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Personal"
+      },
+      {
+        "info": "Completed a short course in digital illustration at the Academy of Art University in 2016.",
+        "year": 2016,
+        "ref": "https://www.artacademy.edu/",
+        "confidence": "Low",
+        "sensitivity": false,
+        "dimension": "Personal"
+      }
+    ]
+  },
+  "culture": {
+    "dataPoints": [
+      {
+        "info": "Identifies as American, with a strong interest in global travel and diverse cultures.  Frequently posts about travel photography.",
+        "year": 2020,
+        "ref": "https://www.linkedin.com/in/eleanorvance/",
+        "confidence": "Medium",
+        "sensitivity": false,
+        "dimension": "Personal"
+      }
+    ]
+  },
+  "age": {
+    "dataPoints": [
+      {
+        "info": "Approximately 29-32 years old, based on graduation year and current professional experience.",
+        "year": 2021,
+        "ref": "https://www.linkedin.com/in/eleanorvance/",
+        "confidence": "Medium",
+        "sensitivity": false,
+        "dimension": "Personal"
+      }
+    ],
+    "cohesion": "High"
+  },
+  "workExperience": {
+    "dataPoints": [
+      {
+        "info": "Freelance Photographer and Visual Content Creator, specializing in travel and lifestyle photography.  Currently working on personal projects and collaborations.",
+        "year": 2018,
+        "ref": "https://www.linkedin.com/in/eleanorvance/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Professional"
+      },
+      {
+        "info": "Marketing Assistant at a boutique travel agency, 'Wanderlust Adventures', 2019-2021.",
+        "year": 2021,
+        "ref": "https://wanderlustadventures.com/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Professional"
+      }
+    ],
+    "cohesion": "High"
+  },
+  "role": {
+    "dataPoints": [
+      {
+        "info": "Freelance Photographer & Visual Content Creator",
+        "year": 2021,
+        "ref": "https://www.linkedin.com/in/eleanorvance/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Professional"
+      }
+    ],
+    "cohesion": "High"
+  },
+  "yearsInCurrentCompany": {
+    "dataPoints": [
+      {
+        "info": "Wanderlust Adventures - 2 years 3 months.",
+        "year": 2021,
+        "ref": "https://wanderlustadventures.com/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Professional"
+      }
+    ],
+    "cohesion": "High"
+  },
+  "residence": {
+    "dataPoints": [
+      {
+        "info": "Currently based in Portland, Oregon.",
+        "year": 2021,
+        "ref": "https://www.linkedin.com/in/eleanorvance/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Personal"
+      }
+    ],
+    "cohesion": "High"
+  },
+  "contactsNetwork": {
+    "dataPoints": [
+      {
+        "info": "David Chen, fellow photographer and designer.",
+        "year": 2020,
+        "ref": "https://www.linkedin.com/in/davidchendesigner/",
+        "confidence": "Medium",
+        "sensitivity": false,
+        "dimension": "Personal"
+      },
+      {
+        "info": "Sarah Miller, travel blogger and influencer.",
+        "year": 2019,
+        "ref": "https://www.sarahmillerblog.com/",
+        "confidence": "Low",
+        "sensitivity": false,
+        "dimension": "Personal"
+      }
+    ],
+    "cohesion": "Low"
+  },
+  "workPlace": {
+    "dataPoints": [
+      {
+        "info": "Self-employed (Freelance)",
+        "year": 2018,
+        "ref": "https://www.linkedin.com/in/eleanorvance/",
+        "confidence": "High",
+        "sensitivity": false,
+        "dimension": "Professional"
+      }
+    ],
+    "cohesion": "High"
+  }
+}
