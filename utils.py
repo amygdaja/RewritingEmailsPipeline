@@ -21,7 +21,7 @@ def phishing_pipeline(device="cuda"):
     torch.backends.cuda.enable_mem_efficient_sdp(True)
     torch.backends.cuda.enable_math_sdp(True)
 
-    MODEL_ID = "google/gemma-3-4b-it"
+    MODEL_ID = "Qwen/Qwen3-4B-Instruct-2507" 
 
     tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
     if tokenizer.pad_token is None:

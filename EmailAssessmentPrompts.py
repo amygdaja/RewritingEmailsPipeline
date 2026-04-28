@@ -9,11 +9,7 @@ def evaluate_persuasion(email, pipe):
         "email": email
     }
 
-    messages = [
-        {
-            "role": "system",
-            "content": [
-                {"type": "text", "text": f"""
+    system_instructions = """
                     You are an expert in persuasion psychology. Your task is to identify the persuasion principles used in the attached email.
                     
                     Persuasion principles:
@@ -25,10 +21,8 @@ def evaluate_persuasion(email, pipe):
                     - Social proof: The email references other people's participation or endorsement.
                  
                     Mention how the persuasion principle is used in the explanation. If a principle is not present in the email, put "Not present" in the explanation.
-                    """
-                    
-                    + "Respond STRICTLY in valid JSON only, in this exact format (no extra text before or after):" +
-                    """
+
+                    Respond STRICTLY in JSON ONLY, in this exact format (no extra text before or after):
                     {
                         "Reciprocity": {"Explanation": "explanation"},
                         "Scarcity": {"Explanation": "explanation"},
@@ -36,17 +30,16 @@ def evaluate_persuasion(email, pipe):
                         "Commitment/Consistency": {"Explanation": "explanation"},
                         "Liking": {"Explanation": "explanation"},
                         "Social proof": {"Explanation": "explanation"}
-                    } """
-                    + """Do *NOT* output anything other than this JSON."""
-                 }
-            ]
-        },
-        {
-            "role": "user",
-            "content": json.dumps(combined, indent=2)
-        }
+                    }
+                    Do *NOT* output anything other than this JSON."""
 
-    ]
+    messages = [
+            {
+                "role": "user",
+                "content": system_instructions + "\n\n" + json.dumps(combined, indent=2)
+            }
+        ]
+    
     output = pipe(text_inputs=messages, max_new_tokens=400)
 
     return output[0]["generated_text"][-1]["content"]
@@ -61,11 +54,7 @@ def evaluate_phishing(email, pipe):
         "email": email
     }
 
-    messages = [
-        {
-            "role": "system",
-            "content": [
-                {"type": "text", "text": """
+    system_instructions = """
                     You are an email security analyst. Your task is to determine whether an email is phishing or benign.  
                  
                     Use the indicators as defined below as guidance in your assessment. Do NOT assume missing information.
@@ -91,15 +80,13 @@ def evaluate_phishing(email, pipe):
                     - The justification must be a maximum of 5 sentences.
                     - do NOT use bullet points, markdown, line breaks, or quotation marks within the justification.
                     - Do NOT add any text outside the JSON."""
-                 }
-            ]
-        },
-        {
-            "role": "user",
-            "content": json.dumps(combined, indent=2)
-        }
+    messages = [
+            {
+                "role": "user",
+                "content": system_instructions + "\n\n" + json.dumps(combined, indent=2)
+            }
+        ]
 
-    ]
     output = pipe(text_inputs=messages, max_new_tokens=300)
 
     return output[0]["generated_text"][-1]["content"]
@@ -111,11 +98,7 @@ def evaluate_phishing_persuasion(email, persuasion_output, pipe):
         "persuasion_principles": persuasion_output
     }
 
-    messages = [
-        {
-            "role": "system",
-            "content": [
-                {"type": "text", "text": """
+    system_instructions = """
                     You are an email security analyst. Your task is to determine whether an email is phishing or benign based on the persuasion principles that are used within the email.
                     An email is considered phishing if the persuasion principles used in the email are inconsistent with the sender’s claimed purpose and appear manipulative, deceptive, or inappropriate for legitimate communication.
 
@@ -135,16 +118,16 @@ def evaluate_phishing_persuasion(email, persuasion_output, pipe):
                     Rules:
                     - The justification must be a maximum of 5 sentences.
                     - do NOT use bullet points, markdown, line breaks, or quotation marks within the justification.
-                    - Do NOT add any text outside the JSON."""
-                 }
-            ]
-        },
-        {
-            "role": "user",
-            "content": json.dumps(combined, indent=2)
-        }
+                    - Do NOT add any text outside the JSON.
+                    """
+    
+    messages = [
+            {
+                "role": "user",
+                "content": system_instructions + "\n\n" + json.dumps(combined, indent=2)
+            }
+        ]
 
-    ]
     output = pipe(text_inputs=messages, max_new_tokens=300)
 
     return output[0]["generated_text"][-1]["content"]
@@ -159,11 +142,7 @@ def evaluate_etiquette(email, pipe):
         "email": email
     }
 
-    messages = [
-        {
-            "role": "system",
-            "content": [
-                {"type": "text", "text": """
+    system_instructions = """
                     You are a professional email communication analyst. Your task is to evaluate the etiquette of an email, which refers to the structure and writing quality of the email.
                     
                     Evaluate the attached email based on the indicators below. Do NOT assume missing information.
@@ -191,29 +170,25 @@ def evaluate_etiquette(email, pipe):
                     - The justification must be a maximum of 5 sentences.
                     - do NOT use bullet points, markdown, line breaks, or quotation marks within the justification.
                     - Do NOT add any text outside the JSON."""
-                 }
-            ]
-        },
-        {
-            "role": "user",
-            "content": json.dumps(combined, indent=2)
-        }
 
-    ]
+    messages = [
+            {
+                "role": "user",
+                "content": system_instructions + "\n\n" + json.dumps(combined, indent=2)
+            }
+        ]
+                 
     output = pipe(text_inputs=messages, max_new_tokens=300)
 
     return output[0]["generated_text"][-1]["content"]
+
 
 def evaluate_content(email, pipe):
     combined = {
         "email": email
     }
 
-    messages = [
-        {
-            "role": "system",
-            "content": [
-                {"type": "text", "text": """
+    system_instructions = """
                     You are a professional email communication analyst. Your task is to evaluate the content of an email, which refers to the accuracy, relevance and clarity of the email.
                     
                     Evaluate the attached email based on the indicators below. Do NOT assume missing information.
@@ -240,32 +215,26 @@ def evaluate_content(email, pipe):
                     - The justification must be a maximum of 5 sentences.
                     - do NOT use bullet points, markdown, line breaks, or quotation marks within the justification.
                     - Do NOT add any text outside the JSON."""
-                 }
-            ]
-        },
+
+    messages = [
         {
             "role": "user",
-            "content": json.dumps(combined, indent=2)
+            "content": system_instructions + "\n\n" + json.dumps(combined, indent=2)
         }
-
     ]
+    
     output = pipe(text_inputs=messages, max_new_tokens=300)
 
     return output[0]["generated_text"][-1]["content"]
 
 
 def evaluate_personalization(email, profile_data, pipe):
-
     combined = {
         "email": email,
         "user_profile": profile_data
     }
 
-    messages = [
-        {
-            "role": "system",
-            "content": [
-                {"type": "text", "text": """
+    system_instructions ="""
                     You are a professional email communication analyst. Your task is to evaluate how appropriately personalized an email is, according to the attached user profile. 
                     
                     Task:
@@ -293,22 +262,20 @@ def evaluate_personalization(email, profile_data, pipe):
                     - The justification must be a maximum of 5 sentences.
                     - do NOT use bullet points, markdown, line breaks, or quotation marks within the justification.
                     - Do NOT add any text outside the JSON."""
-                 }
-            ]
-        },
+
+    messages = [
         {
             "role": "user",
-            "content": json.dumps(combined, indent=2)
+            "content": system_instructions + "\n\n" + json.dumps(combined, indent=2)
         }
-
     ]
+
     output = pipe(text_inputs=messages, max_new_tokens=300)
 
     return output[0]["generated_text"][-1]["content"]
 
 
 def evaluate_personalization_persuasion(email, persuasion_principles, kb, profile_data, pipe):
-
     combined = {
         "email": email,
         "user_profile": profile_data,
@@ -316,11 +283,7 @@ def evaluate_personalization_persuasion(email, persuasion_principles, kb, profil
         "persuasion_principles": persuasion_principles
     }
 
-    messages = [
-        {
-            "role": "system",
-            "content": [
-                {"type": "text", "text": """
+    system_instructions = """
                     You are an expert in persuasion psychology. Your task is to determine whether the persuasion techniques used in an email are appropriate for the attached recipient's profile.
 
                     Task:
@@ -343,14 +306,13 @@ def evaluate_personalization_persuasion(email, persuasion_principles, kb, profil
                     - The justification must be a maximum of 5 sentences.
                     - do NOT use bullet points, markdown, line breaks, or quotation marks within the justification.
                     - Do NOT add any text outside the JSON."""
-                 }
-            ]
-        },
-        {
-            "role": "user",
-            "content": json.dumps(combined, indent=2)
-        }
 
+
+    messages = [
+        {
+        "role": "user",
+        "content": system_instructions + "\n\n" + json.dumps(combined, indent=2)
+        }
     ]
     output = pipe(text_inputs=messages, max_new_tokens=300)
 

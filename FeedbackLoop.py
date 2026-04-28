@@ -159,7 +159,7 @@ def FeedbackLoop(MAX_ITER, device, email, profile_data, kb_json):
 
         # Rewrite email based on feedback
         print("\nRewriting email based on given feedback...\n")
-        new_email = rewrite_email(email, instructions_formatted, kb_json, profile_data, pipe)
+        new_email = rewrite_email(email, instructions_formatted, profile_data, pipe)
         email, justification = parse_rewritten_email(new_email)
         if (email == None):
             print("\nIssue with parsing rewritten email. Loop ending early...")
